@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+<body>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="text-center">Login</h3>
+                    <% if (locals.mess) { %>
+                        <p><%= mess %></p> 
+                    <% } %>
+
+                </div>
+                <div class="card-body">
+                    <form action="/log/users" method="post">
+                        <div class="form-group">
+                            <label for="username">Email:</label>
+                            <input type="email" class="form-control" id="username" placeholder="Enter username" required="required" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="pass" class="form-control" id="password" placeholder="Enter password" required="required" name="pass">
+                        </div>
+                        <button type="submit" class="btn btn-primary ">Login</button>
+                        <a href="/Register" class="">Not have Account</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

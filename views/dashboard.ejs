@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Product Review</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2>Product Review</h2>
+        <form method="POST" action="/submit_review">
+            <div class="form-group">
+                <% if (locals.mess) { %>
+                    <p><%= mess %></p> 
+                <% } %>
+                
+                <label for="productName">Select a Product:</label>
+                <% if (locals.user) { %>
+                    <input type="hidden" id="someInput" name="userEmail" placeholder="Enter something"
+                    value="<%= locals.user.email  %>">   
+                <% } %>
+               
+                <select class="form-control" id="productName" name="productName">
+                    <% locals.product.forEach(product=> { %>
+                        <option value="<%= product.name %>">
+                            <%= product.name %>
+                        </option>
+                        <% }); %>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="review">I like the product:</label>
+                <select class="form-control" id="review" name="review">
+                    <option value="like">Like</option>
+                    <option value="dislike">Not Like</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Review</button>
+        </form>
+    </div>
+
+</body>
+
+</html>
